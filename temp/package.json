@@ -1,0 +1,43 @@
+{
+  "name": "clabtrap",
+  "description": "Battle Rap",
+  "version": "0.0.1",
+  "author": "Joel Burford <joelburford@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "coffee-script": "1.4.0",
+    "express": "3.1.0",
+    "jade": "0.28.1",
+    "less-middleware": "0.1.9",
+    "moment": "2.0.0",
+    "request": "2.12.0",
+    "chai": "~1.5.0",
+    "mocha": "~1.8.1",
+    "pg": "0.14.x",
+    "emailjs": "0.3.x",
+    "nodemailer": "0.4.1"
+  },
+  "devDependencies": {
+    "mocha": "1.8.1",
+    "nock": "0.15.2",
+    "qs": "0.5.3",
+    "should": "1.2.1",
+    "supertest": "0.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/repo"
+  },
+  "subdomain": "example",
+  "domains": [
+    "dev.example.com"
+  ],
+  "scripts": {
+    "start": "server.coffee",
+    "test": "cake test"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.2.x"
+  }
+}

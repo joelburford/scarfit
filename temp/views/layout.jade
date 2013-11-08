@@ -1,0 +1,103 @@
+!!! 5
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=Edge,chrome=1')
+  script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js')
+
+  meta(name='description', content='A home for MCs, producers, and battle rap.')
+  meta(name='keywords', content='rap, battlerap, battle, rap music, music production, collaboration')
+  
+  // Facebook/OpenGraph tags so we show up right in Facebook links/shares 
+  meta(property='og:type', content='website')
+  meta(property='og:image', content='')
+  meta(property='og:url', content='http://clabtrap.com')
+  meta(property='og:title', content='Clabtrap')
+  meta(property='og:site_name', content='Clabtrap')
+  meta(property='og:description', content='A home for MCs, producers, and battle rap.')
+  meta(property='fb:app_id', content='')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  
+  link(rel='icon', type='image/png', href='img/favicon2.png')
+  
+  title Clabtrap | Battle Rap
+  
+  include header_css
+
+//- script
+
+//-     $(document).ready(function(){
+//-           $(document).ready(function(){
+//-             $("#landingsidebar").height( $("#content").height());
+//-           });
+//-       }
+  
+body
+  div#landingbg
+    div#content
+      div#landingmain
+        block body
+        div#divContactFooter
+          block footer
+      div#landingsidebar
+        block sidebar
+        
+        //span#sidebarads
+          script
+              google_ad_client = "ca-pub-9942944279228056";
+              /* Clabtrap */
+              google_ad_slot = "6411267912";
+              google_ad_width = 300;
+              google_ad_height = 250;
+          script(src="http://pagead2.googlesyndication.com/pagead/show_ads.js")
+
+
+  // Google Analytics Code 
+  script(type='text/javascript')
+    var _gaq = _gaq 
+    #push|| [];
+    _gaq.push(['_setAccount', 'UA-37324074-3']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  // End Google Anayltics Code 
+  
+  // Javascript libraries
+  script(src='js/libs/bootstrap.min.js') 
+  script(src='js/libs/bootstrap-modalmanager.js')           
+  script(src='js/libs/bootstrap-modal.js')
+
+  //- If the user's browser is IE8 or less tell them to upgrade
+  //if lte IE 8
+    <script>
+    $(document).ready(function () {
+    $('#cf-modal').css({
+    width: '770px',
+    'margin-left': function () {
+    return -($(this).width() / 2);
+    }
+    }).modal({keyboard: false, backdrop: 'static'});
+    });
+    </script>
+    <div id="cf-modal" class="modal hide">
+    <div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h3>Your Browser Doesn't Have the Required Technology to Use This Website</h3>
+    </div>
+    <div class="modal-body">
+    <p>Don't despair! Unfortunately you are using Internet Explorer, perhaps against your will :(</p>
+    <p>While Clabtrap is capable of functioning fully in modern versions of IE it was actually designed to be standards compliant, which older versions of IE are not. We made Backup Box this way to keep programming time down, and usability up.</p>
+    <p>If you are so inclined, you should install a better web browser alternative such as Chrome, Firefox, or Opera. Or upgrade IE. Either option will allow you to keep all your files, bookmarks, and settings the same.</p>
+    <p>If you are unable to install a better browser, you might consider adding Google Chrome Frame, a simple plugin for IE that will enable you to continue to use IE but experience the web (and Clabtrap!) the way it was meant to be. Chrome Frame doesn't require administrator privileges or a reboot of your computer, because it's awesome!</p>
+    </div>
+    <div class="modal-footer">
+    <a id="finalize-close" class="btn btn-danger" data-dismiss="modal">I hate the Internet</a>
+    <a class="btn" href="http://www.google.com/chromeframe?quickenable=true" target="_blank"><img src="img/browser_gc.png" align="absmiddle"> Add Chrome Frame</a>
+    <a class="btn" href="http://getfirefox.com" target="_blank"><img src="img/browser_ff.png" align="absmiddle"> Get Firefox</a>
+    <a class="btn" href="http://www.opera.com/" target="_blank"><img src="img/browser_opera.png" align="absmiddle"> Get Opera</a>
+    <a class="btn" href="https://www.google.com/chrome" target="_blank"><img src="img/browser_gc.png" align="absmiddle"> Get Chrome</a>
+    <a class="btn" href="http://windows.microsoft.com/is-IS/internet-explorer/products/ie/home" target="_blank"><img src="img/browser_ie.png" align="absmiddle"> Upgrade IE</a>
+    </div>
+    </div>

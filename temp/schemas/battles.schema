@@ -1,0 +1,10 @@
+CREATE TABLE battles (	
+	id SERIAL PRIMARY KEY,
+	title varchar(256), 
+	mc1_id integer references users(id),
+	mc2_id integer references users(id),
+	producer_id interger references users(id),
+	date_sub date,
+	winner integer references users(id),
+	beat integer references beats(id)
+);

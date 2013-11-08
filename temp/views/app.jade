@@ -1,0 +1,41 @@
+section(role='app')
+  .alert.alert-info.hide(style='text-align: center; font-weight: bold; font-size: 1.2em; line-height: 2.2em; margin-bottom: 0')
+    span.msg
+      a(href='http://www.clabtrap.com') Clabtrap 
+      | announcement here 
+      a(href='mailto:red@clabtrap.com') support 
+      | with any questions.
+  #app-header
+    .container
+      ul.nav.nav-tabs
+        li.active
+          a(href='#wizard') New Transfer Wizard
+        li
+          a(href='#schedules') Schedules
+        li
+          a(href='#log', data-toggle='tab', data-mixpanel-track='Transfer Log') Log
+
+        li.dropdown.float-right
+          a#email-label.dropdown-toggle(data-toggle='dropdown') Account
+          ul.dropdown-menu
+            li
+              a(href='#account', data-toggle='tab', data-mixpanel-track='Account Modal') Details
+            li
+              a#logout-btn Logout
+        li.float-right
+          a(href='#upgrade', data-toggle='tab') Upgrade Account
+        
+        
+
+  #app-body
+    .container
+      .tab-content
+        .tab-pane#wizard.active
+
+        .tab-pane#schedules
+
+        .tab-pane#log
+
+        .tab-pane#upgrade
+
+        .tab-pane#account

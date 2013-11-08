@@ -1,0 +1,8 @@
+CREATE TABLE hype (  
+    id SERIAL PRIMARY KEY, 
+    mc_name varchar(64),
+    user_id integer references users(id),
+    link varchar(512),
+    date_sub date,
+    accepted boolean
+);
