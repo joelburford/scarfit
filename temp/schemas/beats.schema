@@ -1,6 +1,0 @@
-CREATE TABLE beats (
-	id SERIAL PRIMARY KEY,
-	user_id integer references users(id),name
-	name varchar(40),
-	link varchar(512)
-);
