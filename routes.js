@@ -2,13 +2,14 @@ var express = require('express');
 
 //var user = require './routes/user';
 //var info = require './routes/info';
-//var Main = require './routes/main';
+var Main = require('./routes/main');
 
 router = function(app) {
 
-  app.get('/', function(request, response) {
-    response.send('Hello World!');
-  });
+  app.all('/', Main.index);
+  // app.get('/', function(request, response) {
+  //   response.send('Hello World!');
+  // });
 
 }
 /*
