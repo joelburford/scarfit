@@ -1,12 +1,13 @@
 var express = require('express');
 
-//var user = require './routes/user';
+var user = require('./routes/user');
 //var info = require './routes/info';
 var Main = require('./routes/main');
 
 router = function(app) {
 
   app.all('/', Main.index);
+  app.get('/signup', user.signup);
   // app.get('/', function(request, response) {
   //   response.send('Hello World!');
   // });
@@ -16,7 +17,6 @@ router = function(app) {
   #AUTHENTICATION NOT REQUIRED
   #User Login/Signup Routes
   app.all '/', Main.index
-  app.get '/signup', user.signup
   app.post '/signup', user.signup
   app.post '/login', user.login
   app.post '/2013hype', user.submitHype

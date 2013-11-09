@@ -22,6 +22,5 @@
 #         console.log body
 */
 exports.index = function (req, res){
-        res.send('Scarf It');
-        //res.render ('index', {title: 'Scarf It'});
+        res.render ('index', {title: 'Scarf It'});
 };
