@@ -1,3 +1,5 @@
+var UserModule = require('../modules/user_module');
+
 exports.signup = function(req, res) {
 		res.render('signup', {
 			title : 'Sign Up',
@@ -7,7 +9,6 @@ exports.signup = function(req, res) {
 
 /*
 CT = require '../helpers/country_list'
-UM = require '../modules/user_module'
 EM = require '../helpers/email_dispatcher'
 
 exports.handle_incoming = (req, res) ->
