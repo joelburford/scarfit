@@ -7,6 +7,12 @@ exports.signup = function(req, res) {
 
 };
 
+exports.signupPost = function(req, res){
+	res.render('signup', {
+		title: 'Signed Up Yo',
+	});
+};
+
 /*
 CT = require '../helpers/country_list'
 EM = require '../helpers/email_dispatcher'

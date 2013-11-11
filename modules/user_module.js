@@ -124,32 +124,33 @@ findById = (id, callback) ->
 
 function generateSalt() {
 	
-	set = '0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ'
-	salt = ''
-	for i in [0..10] by 1
-		p = Math.floor Math.random() * set.length
-		salt += set[p]
+	var set = '0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ';
+	var salt = '';
+	for (var i = 0; i < 11; i++) {
+		p = Math.floor(Math.random() * set.length);
+		salt += set[p];
+	}
 	
-	return salt
+	return salt;
 
 }
 
 function md5(str){
 
-	return crypto.createHash('md5').update(str).digest('hex')
+	return crypto.createHash('md5').update(str).digest('hex');
 
 }
 
 function saltAndHash(pass, callback) {
 
-	salt = generateSalt()
-	callback salt + md5(pass + salt)
+	var salt = generateSalt();
+	callback(salt + md5(pass + salt));
 
 }
 
 
 function validatePassword(plainPass, hashedPass, callback) {
-	salt = hashedPass.substr(0, 11)
-	validHash = salt + md5(plainPass + salt)
-	callback null, hashedPass == validHash
+	var salt = hashedPass.substr(0, 11);
+	validHash = salt + md5(plainPass + salt);
+	callback(null, hashedPass == validHash);
 }

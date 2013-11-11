@@ -1,2 +1,48 @@
-block body
-    p SIGN UP BABY
+script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js")
+script
+    $(document).ready(function(){
+        $('#signUpForm').validate(
+        {
+            rules: {
+                email: {
+                    required: true,
+                    email: true,
+                },
+                pass: {
+                    required: true,
+                    minlength: 6,
+                },
+                repass: {
+                    required: true,
+                    equalTo: "#pass",
+                },
+            },
+            messages: {
+                email: {
+                    required: "This is empty.",
+                    email: "That is not an email."
+                },
+                pass: {
+                    required: "You need a password.",
+                    minlength: "Your password must be 6 or more characters."
+                },
+                repass: {
+                    required: "Please type your password in again.",
+                    equalTo: "Your passwords are not the same."
+                },
+            }
+        });   
+        
+    });
+
+div#signUpDiv
+      <h2>SIGN UP</h2>
+      form#signUpForm
+        input.email(type='email', id='email', name='email', placeholder='Email')
+        br
+        input.password(type='password', id='pass', name='pass', placeholder='Password')
+        br
+        input.password(type='password', id='repass', name='repass', placeholder='Retype password')
+        br
+        button.btn-large.btn-primary(id="signUpButton", type="submit", formmethod="post", formaction="/signup") SIGN UP

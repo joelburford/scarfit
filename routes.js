@@ -8,6 +8,7 @@ router = function(app) {
 
   app.all('/', Main.index);
   app.get('/signup', user.signup);
+  app.post('/signup', user.signupPost);
   // app.get('/', function(request, response) {
   //   response.send('Hello World!');
   // });
