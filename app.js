@@ -4,8 +4,9 @@
 var express = require("express");
 var app = express();
 
-require('./routes.js')(app);
 require('./config')(app);
+require('./routes')(app);
+
 /*app.listen(port, function() {
   console.log("Listening on " + port);
 });*/

@@ -1,15 +1,22 @@
 var express = require('express');
-//path = require 'path'
+var path = require('path');
 //fs = require 'fs'
 //url = require 'url'
-
-//app.use(express.logger());
 
 var config = function(app) {
 
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  //app.use(express.logger());
+
+
+  app.use(express.favicon());
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());// Allows the use of HTTP 'DELETE' AND 'PUT' methods.
+  app.use(express.cookieParser('1234567890QWERTY'));
+  app.use(express.session({secret: '1234567890QWERTY'}));
+  ///app.use(express.logger(loggingOptions));
 /*
 
   # Production
@@ -35,13 +42,6 @@ var config = function(app) {
   # We only want to serve https so we redirect any http traffic to https.
   # On development the function is empty so that the redirect doesn't happen.
   # app.use httpsRedirect
-
-  app.use express.favicon()
-  app.use express.bodyParser()
-  app.use express.methodOverride() # Allows the use of HTTP 'DELETE' AND 'PUT' methods.
-  app.use express.cookieParser('1234567890QWERTY')
-  app.use express.session({secret: '1234567890QWERTY'})
-  app.use express.logger(loggingOptions)
 
   # Auto compile LESS. Will detect changes when developing
   app.use lessCompiler(lessCompilerOptions)

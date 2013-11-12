@@ -9,11 +9,22 @@ router = function(app) {
   app.all('/', Main.index);
   app.get('/signup', user.signup);
   app.post('/signup', user.signupPost);
+
+
+  //Static Files
+  app.get('/libraries/jquery.min.js', function(req, res){
+    res.sendfile('libraries/jquery.min.js');
+  });
+
+  app.get('/libraries/jquery.validate.min.js', function(req, res){
+    res.sendfile('libraries/jquery.validate.min.js');
+  });
+
   // app.get('/', function(request, response) {
   //   response.send('Hello World!');
   // });
 
-}
+//}
 /*
   #AUTHENTICATION NOT REQUIRED
   #User Login/Signup Routes
@@ -62,10 +73,13 @@ router = function(app) {
   #     }
   # }
 
-  #IF NO URL MATCHES, SERVE 404, MUST BE LAST ROUTE!
-  app.get '*', (req, res) ->
-    res.render 'error/404', { title: 'Page Not Found'}
-
 */
+
+  //#IF NO URL MATCHES, SERVE 404, MUST BE LAST ROUTE!
+  app.get('*', function(req, res){
+    res.render('error', { title: 'Ding Dong EERRREEERR'});
+  });
+}
+
 
 module.exports = router

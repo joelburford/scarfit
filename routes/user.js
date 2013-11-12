@@ -8,9 +8,55 @@ exports.signup = function(req, res) {
 };
 
 exports.signupPost = function(req, res){
-	res.render('signup', {
-		title: 'Signed Up Yo',
+	var email = req.param("email");
+	console.log("POST to /signup, email: " + email);
+	var pass = req.param("pass");
+
+	var user = {
+		email: email,
+		pass: pass
+	};
+
+	UserModule.addNewUser(user, function(e){
+		if (typeof e === 'undefined') {
+			//User created successfully, log in
+			console.log("User added successfully");
+			res.redirect("/")
+		} else {
+			console.log(e);
+
+			//DEAL WITH THIS BETTER!  Display error message and redirect to signup.
+			res.send(e);
+		}
 	});
+
+	/*
+		UM.addNewAccount {
+		email 	: req.body.email,
+		pass	: req.body.pass,
+	}, 
+
+	(e) ->
+		if e
+			console.log "ERROR sending email"
+			console.log JSON.stringify(e)
+			res.send e, 400
+		else
+			UM.getConfirmKey req.body.email, (key) ->
+				EM.dispatchNewUser req.body.email, key, (e) ->
+					#
+				if e
+					console.log JSON.stringify(e)
+				console.log "Sending email to " + req.body.email + 
+				req.session.user = req.body.email
+				#if req.param('remember-me') == 'true'
+				res.cookie 'user', req.body.email, { maxAge: 900000 }
+				res.cookie 'pass', req.body.password, { maxAge: 900000 }
+				
+				#res.send user, 200
+				#log user in, refresh page
+				res.redirect '/'
+				*/
 };
 
 /*

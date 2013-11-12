@@ -13,8 +13,20 @@ function registerUser(username, pass, callback) {
 	//
 };
 
-exports.addNewUser = function addNewAccount(username, pass, firstname, lastname, address, email, phone, callback) {
-    //replace arg with json?
+exports.addNewUser = function addNewAccount(user, callback) {
+	//call table_user addnew with user.email and user.pass
+	//account creation success
+	if(true) {
+		callback();
+	} else if (false) {
+		//error email in use
+		callback("Error Adding User: Email already in use");
+	} else {
+		//add user fail
+		callback("Error Adding User");
+
+	}
+
 }
 
 exports.updateUser = function updateAccount(username, pass, firstname, lastname, address, email, phone, callback){
