@@ -1,4 +1,6 @@
-crypto 		= require('crypto')
+var crypto 		= require('crypto');
+var UserTable = require('../db/table_users');
+var UserDetailsTable = require('../db/table_persons');
 //moment 		= require('moment')
 
 //#Establish MongoDB Connection and Get DB Accessort
@@ -14,19 +16,18 @@ function registerUser(username, pass, callback) {
 };
 
 exports.addNewUser = function addNewAccount(user, callback) {
-	//call table_user addnew with user.email and user.pass
-	//account creation success
-	if(true) {
-		callback();
-	} else if (false) {
-		//error email in use
-		callback("Error Adding User: Email already in use");
-	} else {
-		//add user fail
-		callback("Error Adding User");
+	UserTable.addUser(user, function(e){
+		//UserDetailsTable.setDefaults
+		//call table_user addnew with user.email and user.pass
+		//account creation success
+		if(typeof e === 'undefined') {
+			callback();
+		} else {
+			//add user fail
+			callback(e);
 
-	}
-
+		}
+	});
 }
 
 exports.updateUser = function updateAccount(username, pass, firstname, lastname, address, email, phone, callback){
