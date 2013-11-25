@@ -1,11 +1,33 @@
 var UserModule = require('../modules/user_module');
 
 exports.signup = function(req, res) {
+	console.log("GET to /signup");
+	var user;
+		if(typeof req.user != undefined) {
+			user = req.user;
+		} else {
+			user = "";
+		}
+
 		res.render('signup', {
 			title : 'Sign Up',
+			user: user
 		});
 
 };
+
+exports.logOut = function(req,res){
+	console.log("GET to /logout");
+
+	res.clearCookie('user');
+	res.clearCookie('pass');
+
+	req.session.destroy(function(e) { 
+		res.send ('ok', 200 );
+	});
+
+	res.redirect('/');
+}
 
 exports.signupPost = function(req, res){
 	var email = req.param("email");
@@ -19,9 +41,15 @@ exports.signupPost = function(req, res){
 
 	UserModule.addNewUser(user, function(e){
 		if (typeof e === 'undefined') {
-			//User created successfully, log in
+			//User added to db successfully
 			console.log("User added successfully");
-			res.redirect("/")
+			console.log("Logging in user: " + user.email);
+
+			req.session.user = user.email;
+			res.cookie('user', user.email, { maxAge: 900000 });
+			res.cookie('pass', user.pass, { maxAge: 900000 });
+
+			res.redirect("/");
 		} else {
 			console.log(e);
 
@@ -58,6 +86,8 @@ exports.signupPost = function(req, res){
 				res.redirect '/'
 				*/
 };
+
+
 
 /*
 CT = require '../helpers/country_list'

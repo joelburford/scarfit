@@ -22,5 +22,9 @@
 #         console.log body
 */
 exports.index = function (req, res){
-        res.render ('index', {title: 'Scarf It'});
+    if (req.session.user) {
+        res.render('index', {title: 'Logged in as' + req.session.user, user:req.session.user});
+    } else {
+        res.render ('index', {title: 'Not logged in FOO', user:""});
+    }
 };

@@ -10,6 +10,8 @@ router = function(app) {
   app.get('/signup', user.signup);
   app.post('/signup', user.signupPost);
 
+  app.get('/logout', user.logOut);
+
 
   //Static Files
   app.get('/libraries/jquery.min.js', function(req, res){

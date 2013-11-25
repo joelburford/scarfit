@@ -1,3 +1,5 @@
+extends layout
+
 title= title      
 script
     $(document).ready(function(){
@@ -35,13 +37,14 @@ script
         
     });
 
-div#signUpDiv
-      <h2>SIGN UP</h2>
-      form#signUpForm
-        input.email(type='email', id='email', name='email', placeholder='Email')
-        br
-        input.password(type='password', id='pass', name='pass', placeholder='Password')
-        br
-        input.password(type='password', id='repass', name='repass', placeholder='Retype password')
-        br
-        button.btn-large.btn-primary(id="signUpButton", type="submit", formmethod="post", formaction="/signup") SIGN UP
+block body
+    div#signUpDiv
+          <h2>SIGN UP</h2>
+          form#signUpForm
+            input.email(type='email', id='email', name='email', placeholder='Email')
+            br
+            input.password(type='password', id='pass', name='pass', placeholder='Password')
+            br
+            input.password(type='password', id='repass', name='repass', placeholder='Retype password')
+            br
+            button.btn-large.btn-primary(id="signUpButton", type="submit", formmethod="post", formaction="/signup") SIGN UP

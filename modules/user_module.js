@@ -30,13 +30,14 @@ exports.addNewUser = function addNewAccount(user, callback) {
 	});
 }
 
-exports.updateUser = function updateAccount(username, pass, firstname, lastname, address, email, phone, callback){
+exports.updateUser = function (username, pass, firstname, lastname, address, email, phone, callback){
 	
 }
 
-exports.deleteUser = function deleteUser(username, pass, callback) {
+exports.deleteUser = function (username, pass, callback) {
 
 }
+
 
 /*
 
